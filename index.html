@@ -1,31 +1,172 @@
-<!doctype html>
-
+<!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <head>
+    <title>PeerJS test</title>
+    <meta charset="UTF-8">
+    <meta name="description" content="Testing out how PeerJS works"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <script src="https://cdn.jsdelivr.net/npm/peerjs@0.3.20/dist/peer.min.js" charset="utf-8"></script>
+    <style>
+      .boxed {
+        padding: 10px;
+        border: 1px solid black;
+      }
+      .message::before {
+        opacity: 0.5;
+      }
+      .their {
+        color: blue;
+      }
+      .their::before {
+        content: 'them: ';
+      }
+      .your {
+        color: green;
+      }
+      .your::before {
+        content: 'you: ';
+      }
+      
+      sheep-btn {
+  display: block;
+  position: fixed;
+  z-index: 1000;
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  background-color: rgba(0, 0, 0, 0.4);
+  background-size: 45px;
+  background-repeat: no-repeat;
+  background-position: 50% 80%;
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.5);
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  transition: all .2s;
+  right: 10px;
+  bottom: 10px;
+  transform: translateZ(0);
+}
+sheep-btn, .sheep-blockscreen sheep-btn:hover {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 480 480' stroke='white' stroke-opacity='0.7' stroke-width='20' fill='none'%3E%3Cpath d='M90 90a50 50 0 0 0 0 100H98.579A150 150 0 1 0 381.421 190H390a50 50 0 0 0 0 -100a50 50 0 1 1 -100 0a50 50 0 1 1 -100 0a50 50 0 1 1 -100 0z'/%3E%3C/svg%3E");
+}
+sheep-btn:hover {
+  background-color: rgba(255,255,255,0.8);
+  box-shadow: 0 0 4px rgba(0,0,0,0.5);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 480 480' stroke='black' stroke-opacity='0.7' stroke-width='20' fill='none'%3E%3Cpath d='M90 90a50 50 0 0 0 0 100H98.579A150 150 0 1 0 381.421 190H390a50 50 0 0 0 0 -100a50 50 0 1 1 -100 0a50 50 0 1 1 -100 0a50 50 0 1 1 -100 0z'/%3E%3C/svg%3E");
+}
+sheep-btn:active {
+  box-shadow: 0 0 2px rgba(0,0,0,0.5);
+  transform: translateZ(0) scale(0.9);
+}
+sheep-btn:focus {
+  outline: none;
+  box-shadow: 0 0 4px rgba(0,0,0,0.5), 0 0 0 5px rgba(79,161,167,0.3);
+}
+.sheep-blockscreen {
+  pointer-events: none;
+}
+.sheep-blockscreen sheep-btn {
+  right: 50%;
+  bottom: 50%;
+  width: 142vmax;
+  height: 142vmax;
+  margin: -71vmax;
+  background-color: black;
+  background-size: 90px;
+  background-position: 50% 50%;
+  box-shadow: none;
+  pointer-events: none;
+  transition: all .5s;
+}
+      
+    </style>
+  </head>
+  <body>
+    <h1 id="peer-id"></h1>
+    <p>This uses <a href="https://peerjs.com/">PeerJS</a>.</p>
+    <button id="begin">Open</button>
+    <button id="connect" disabled>Connect</button>
+    <script>
+const beginBtn = document.getElementById('begin');
+const peerIDDisplay = document.getElementById('peer-id');
+const connectBtn = document.getElementById('connect');
 
-  <title>A Basic HTML5 Template</title>
-  <meta name="description" content="A simple HTML5 Template for new projects.">
-  <meta name="author" content="SitePoint">
+let peer;
+beginBtn.addEventListener('click', e => {
+  peer = new Peer({debug: 3});
+  peer.on('open', id => {
+    peerIDDisplay.textContent = 'Your ID: ' + id;
+  });
+  peer.on('connection', conn => connection(conn, false));
+  beginBtn.disabled = true;
+  connectBtn.disabled = false;
+});
+function connection(conn, byMe) {
+  const box = document.createElement('div');
+  box.className = 'boxed connection';
+  box.innerHTML = `<h3>Connection with ${conn.peer}</h3><p>Made by ${byMe ? 'me' : 'them'}</p>`;
+  const status = document.createElement('p');
+  box.appendChild(status);
+  const received = document.createElement('ul');
+  box.appendChild(received);
+  const sender = document.createElement('input');
+  sender.placeholder = 'Press enter to send';
+  box.appendChild(sender);
+  document.body.appendChild(box);
 
-  <meta property="og:title" content="A Basic HTML5 Template">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://www.sitepoint.com/a-basic-html5-template/">
-  <meta property="og:description" content="A simple HTML5 Template for new projects.">
-  <meta property="og:image" content="image.png">
+  conn.on('open', () => {
+    status.innerHTML = `Open`;
+    conn.on('data', data => {
+      const li = document.createElement('li');
+      li.className = 'their message';
+      li.textContent = data;
+      received.appendChild(li);
+    });
 
-  <link rel="icon" href="/favicon.ico">
-  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
-  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    sender.addEventListener('keydown', e => {
+      if (e.keyCode === 13 && sender.value) {
+        conn.send(sender.value);
+        const li = document.createElement('li');
+        li.className = 'your message';
+        li.textContent = sender.value;
+        received.appendChild(li);
+        sender.value = '';
+      }
+    });
+  });
 
-  <link rel="stylesheet" href="css/styles.css?v=1.0">
+  conn.on('close', () => {
+    status.innerHTML = `<strong>Closed</strong>`;
+  });
+}
+connectBtn.addEventListener('click', e => {
+  const otherID = prompt('ID of other person:');
+  if (otherID) {
+    connection(peer.connect(otherID, { serialization: 'json' }), true);
+  }
+});
 
-</head>
-
-<body>
-  <!-- your content here... -->
-  <div>Hello Peer</div>
-  <script src=""></script>
-</body>
+      document.addEventListener("DOMContentLoaded", function(e) {
+  var homeButton = document.createElement("sheep-btn");
+  homeButton.setAttribute('tabindex', 0);
+  homeButton.setAttribute('aria-label', 'Go to SheepTester directory');
+  homeButton.setAttribute('role', 'button');
+  homeButton.addEventListener('click', function(e) {
+    document.body.classList.add('sheep-blockscreen');
+    homeButton.addEventListener('transitionend', function(e) {
+      window.requestAnimationFrame(function() {
+        // Try forcing repaint
+        homeButton.getBoundingClientRect();
+        window.location = '/?from=sheep3';
+      });
+    });
+  });
+  homeButton.addEventListener('keydown', function(e) {
+    if (e.keyCode === 13) homeButton.click();
+  });
+  document.body.appendChild(homeButton);
+}, {once: true});
+      
+    </script>
+  </body>
 </html>
