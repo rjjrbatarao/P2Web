@@ -1,7 +1,13 @@
 # P2Web
 Peer 2 Peer webserver
 
-## test using https://www.npmjs.com/package/peerjs-nodejs
+## Sources
+```
+https://www.npmjs.com/package/peerjs-nodejs
+https://www.npmjs.com/package/peerjs
+```
+
+## Server
 ```
 const peerJs = require('peerjs-nodejs');
 const peer = peerJs("myPeerId", {
@@ -43,4 +49,24 @@ setTimeout(()=>{
   console.log("CONN CLOSE");
   process.exit();
 }, 10000);
+```
+
+## Client
+```
+import { Peer } from "peerjs";
+const peer = new Peer("pick-an-id");
+const conn = peer.connect("another-peers-id");
+conn.on("open", () => {
+	conn.send("hi!");
+});
+peer.on("connection", (conn) => {
+	conn.on("data", (data) => {
+		// Will print 'hi!'
+		console.log(data);
+	});
+	conn.on("open", () => {
+		conn.send("hello!");
+	});
+});
+
 ```
