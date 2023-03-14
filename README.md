@@ -8,7 +8,7 @@ https://www.npmjs.com/package/peerjs
 ```
 
 ## Server
-```
+```javascript
 const peerJs = require('peerjs-nodejs');
 const peer = peerJs("myPeerId", {
 host: '192.168.137.231',
@@ -52,7 +52,7 @@ setTimeout(()=>{
 ```
 
 ## Client
-```
+```javascript
 import { Peer } from "peerjs";
 const peer = new Peer("pick-an-id");
 const conn = peer.connect("another-peers-id");
