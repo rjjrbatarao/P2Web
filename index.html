@@ -93,8 +93,7 @@ const connectBtn = document.getElementById('connect');
 
 let peer;
 beginBtn.addEventListener('click', e => {
-  //peer = new Peer({debug: 3});
-  peer = new Peer();
+  peer = new Peer({debug: 0});
   peer.on('open', id => {
     peerIDDisplay.textContent = 'Your ID: ' + id;
   });
