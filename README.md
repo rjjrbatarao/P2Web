@@ -7,7 +7,7 @@ https://www.npmjs.com/package/peerjs-nodejs
 https://www.npmjs.com/package/peerjs
 ```
 
-## Peer to peer Reference Learning
+## Peer to peer Reference source code
 ```
 https://github.com/jsanahuja/php-peer-server
 https://github.com/jsanahuja/peer-client
