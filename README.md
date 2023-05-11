@@ -9,6 +9,8 @@ https://www.npmjs.com/package/peerjs
 ## Search Engines
 ```
 https://github.com/quickwit-oss/tantivy
+https://github.com/lnx-search/lnx
+https://github.com/quickwit-oss/quickwit
 ```
 
 ## Peer to peer Reference source code
