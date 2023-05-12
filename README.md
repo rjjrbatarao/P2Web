@@ -5,6 +5,26 @@ Peer 2 Peer webserver
 ```
 https://www.npmjs.com/package/peerjs-nodejs
 https://www.npmjs.com/package/peerjs
+https://anyconnect.com/stun-turn-ice/
+```
+## Turn/Stun server sources
+```
+https://github.com/paullouisageneau/violet
+https://github.com/coturn/coturn
+https://github.com/alhasanmridha/stun
+```
+## Turn/Stun client notes
+```
+https://github.com/node/turn-client/blob/master/c-stun-client-demo.c
+https://gist.github.com/jyaif/e0db3a680443730c05ca36be26f22c93
+https://github.com/0xFireWolf/STUNExternalIP
+https://github.com/paullouisageneau/libjuice/blob/master/test/connectivity.c
+```
+## Turn/Stun server notes
+```
+https://www.metered.ca/tools/openrelay/stun-servers-and-friends
+https://github.com/paullouisageneau/libjuice
+https://github.com/nodertc/stun
 ```
 ## Search Engines
 ```
