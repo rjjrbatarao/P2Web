@@ -19,6 +19,7 @@ https://github.com/node/turn-client/blob/master/c-stun-client-demo.c
 https://gist.github.com/jyaif/e0db3a680443730c05ca36be26f22c93
 https://github.com/0xFireWolf/STUNExternalIP
 https://github.com/paullouisageneau/libjuice/blob/master/test/connectivity.c
+https://fossies.org/linux/liblinphone/src/nat/stun-client.cpp
 ```
 ## Turn/Stun server notes
 ```
