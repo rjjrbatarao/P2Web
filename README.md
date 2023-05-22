@@ -21,6 +21,7 @@ https://github.com/0xFireWolf/STUNExternalIP
 https://github.com/paullouisageneau/libjuice/blob/master/test/connectivity.c
 https://fossies.org/linux/liblinphone/src/nat/stun-client.cpp
 http://maemo.org/development/documentation/manuals/3-x/howto_use_stun_bora/
+https://github.com/jselbie/stunserver
 ```
 ## Turn/Stun server notes
 ```
