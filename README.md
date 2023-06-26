@@ -1,11 +1,17 @@
 # P2Web
 Peer 2 Peer webserver
 
+## Library to be used
+```
+libp2p 
+```
+
 ## Sources
 ```
 https://www.npmjs.com/package/peerjs-nodejs
 https://www.npmjs.com/package/peerjs
 https://anyconnect.com/stun-turn-ice/
+https://javascript.plainenglish.io/writing-decentralized-applications-in-javascript-libp2p-basics-4fa46c5dae8a
 ```
 ## Turn/Stun server sources
 ```
