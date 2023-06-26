@@ -1,9 +1,10 @@
 # P2Web
 Peer 2 Peer webserver
 
-## Library to be used
+## Library candidates
 ```
-libp2p 
+libp2p
+peerjs
 ```
 
 ## Sources
