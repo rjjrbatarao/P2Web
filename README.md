@@ -21,6 +21,7 @@ https://www.espressif.com/en/news/ESP-RTC
 https://webrtchacks.com/sdp-anatomy/
 https://github.com/seemk/WebUDP
 https://github.com/zcduthie/WebRTC-Example-RTCDataChannel
+https://github.com/paullouisageneau/datachannel-wasm
 ```
 ## Turn/Stun server sources
 ```
