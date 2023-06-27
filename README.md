@@ -17,6 +17,7 @@ https://stackoverflow.com/questions/61428318/is-there-any-working-example-that-u
 https://blog.logrocket.com/getting-started-peerjs/
 https://javascript.plainenglish.io/building-a-signaling-server-for-simple-peer-f92d754edc85
 https://awabot.com/en/webrtc-telepresence-teleoperation/
+https://www.espressif.com/en/news/ESP-RTC
 ```
 ## Turn/Stun server sources
 ```
