@@ -19,6 +19,7 @@ https://javascript.plainenglish.io/building-a-signaling-server-for-simple-peer-f
 https://awabot.com/en/webrtc-telepresence-teleoperation/
 https://www.espressif.com/en/news/ESP-RTC
 https://webrtchacks.com/sdp-anatomy/
+https://github.com/seemk/WebUDP
 ```
 ## Turn/Stun server sources
 ```
