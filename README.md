@@ -27,6 +27,7 @@ https://medium.com/@kanecohen/basics-of-webrtc-peer-connections-c1ed743de2f6
 https://dyte.io/blog/understanding-libwebrtc/
 https://github.com/newrun/peerapi
 https://webrtc.googlesource.com/src/+/refs/heads/main/examples/peerconnection
+https://github.com/CodingReefDev/EaseRTC
 ```
 ## Turn/Stun server sources
 ```
