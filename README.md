@@ -23,6 +23,7 @@ https://github.com/seemk/WebUDP
 https://github.com/zcduthie/WebRTC-Example-RTCDataChannel
 https://github.com/paullouisageneau/datachannel-wasm
 https://github.com/RTradeLtd/libcp2p
+https://medium.com/@kanecohen/basics-of-webrtc-peer-connections-c1ed743de2f6
 ```
 ## Turn/Stun server sources
 ```
