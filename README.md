@@ -30,6 +30,7 @@ https://webrtc.googlesource.com/src/+/refs/heads/main/examples/peerconnection
 https://github.com/CodingReefDev/EaseRTC
 https://git.liburtc.org/liburtc/tree/
 https://github.com/centricular/gstwebrtc-demos/blob/master/sendrecv/gst/webrtc-sendrecv.c
+https://github.com/ant-media/Ant-Media-Server/wiki/WebRTC-Embedded-SDK-Documentation
 ```
 ## Turn/Stun server sources
 ```
