@@ -34,6 +34,8 @@ https://github.com/ant-media/Ant-Media-Server/wiki/WebRTC-Embedded-SDK-Documenta
 https://gitee.com/metartc/metaRTC
 https://github.com/pjsip/pjproject
 https://github.com/ultravideo/uvgRTP
+http://live555.com/
+https://research.edm.uhasselt.be/jori/page/CS/Jrtplib.html
 ```
 ## Turn/Stun server sources
 ```
