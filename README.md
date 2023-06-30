@@ -40,6 +40,8 @@ https://research.edm.uhasselt.be/jori/page/CS/Jrtplib.html
 ## Learnings
 ```
 https://www.liveswitch.io/blog/webrtc-nat-traversal-methods-a-case-for-embedded-turn
+https://github.com/svarunan/serverless-webrtc
+https://github.com/cecilMao/webrtc-in-esp8266
 ```
 ## Turn/Stun server sources
 ```
