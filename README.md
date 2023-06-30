@@ -37,6 +37,10 @@ https://github.com/ultravideo/uvgRTP
 http://live555.com/
 https://research.edm.uhasselt.be/jori/page/CS/Jrtplib.html
 ```
+## Learnings
+```
+https://www.liveswitch.io/blog/webrtc-nat-traversal-methods-a-case-for-embedded-turn
+```
 ## Turn/Stun server sources
 ```
 https://github.com/paullouisageneau/violet
